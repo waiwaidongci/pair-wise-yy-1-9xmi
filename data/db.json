@@ -6,6 +6,7 @@
       "escapementType": "瑞士杠杆式",
       "balanceFrequency": "18000vph",
       "targetDailyRateSeconds": 20,
+      "allowedDeviationSeconds": 10,
       "note": "怀表机芯，走时偏快",
       "createdAt": "2026-06-16T00:00:00.000Z"
     }
@@ -14,6 +15,7 @@
     {
       "id": "adjustment_demo",
       "clockId": "clock_demo",
+      "requestId": null,
       "currentDailyRateSeconds": 68,
       "direction": "慢针方向",
       "amount": "游丝快慢针向慢侧微调0.4格",
@@ -21,15 +23,31 @@
       "createdAt": "2026-06-16T00:00:00.000Z"
     }
   ],
+  "retestTasks": [
+    {
+      "id": "task_demo",
+      "clockId": "clock_demo",
+      "adjustmentId": "adjustment_demo",
+      "status": "completed",
+      "createdAt": "2026-06-16T00:00:00.000Z",
+      "dueAt": "2026-06-23T00:00:00.000Z",
+      "completedAt": "2026-06-16T00:00:00.000Z",
+      "completedByRetestId": "retest_demo",
+      "voidedAt": null,
+      "voidReason": null,
+      "supersededByTaskId": null
+    }
+  ],
   "retests": [
     {
       "id": "retest_demo",
       "clockId": "clock_demo",
       "adjustmentId": "adjustment_demo",
+      "taskId": "task_demo",
       "testedAt": "2026-06-16T00:00:00.000Z",
       "dailyRateSeconds": 31,
       "amplitude": 248,
-      "qualified": false,
+      "forcedUnqualified": false,
       "note": "仍偏快，振幅尚可"
     }
   ]
