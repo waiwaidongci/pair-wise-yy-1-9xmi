@@ -1,4 +1,5 @@
 {
+  "schemaVersion": 2,
   "clocks": [
     {
       "id": "clock_demo",
@@ -6,6 +7,8 @@
       "escapementType": "瑞士杠杆式",
       "balanceFrequency": "18000vph",
       "targetDailyRateSeconds": 20,
+      "allowedDeviationSeconds": 10,
+      "specVersion": 1,
       "note": "怀表机芯，走时偏快",
       "createdAt": "2026-06-16T00:00:00.000Z"
     }
@@ -21,16 +24,35 @@
       "createdAt": "2026-06-16T00:00:00.000Z"
     }
   ],
+  "retestTasks": [
+    {
+      "id": "retestTask_demo",
+      "clockId": "clock_demo",
+      "adjustmentId": "adjustment_demo",
+      "dueAt": "2026-06-23T00:00:00.000Z",
+      "status": "completed",
+      "retestId": "retest_demo",
+      "createdAt": "2026-06-16T00:00:00.000Z",
+      "completedAt": "2026-06-16T00:00:00.000Z"
+    }
+  ],
   "retests": [
     {
       "id": "retest_demo",
       "clockId": "clock_demo",
       "adjustmentId": "adjustment_demo",
+      "taskId": "retestTask_demo",
       "testedAt": "2026-06-16T00:00:00.000Z",
       "dailyRateSeconds": 31,
       "amplitude": 248,
-      "qualified": false,
-      "note": "仍偏快，振幅尚可"
+      "note": "仍偏快，振幅尚可",
+      "specSnapshot": {
+        "targetDailyRateSeconds": 20,
+        "allowedDeviationSeconds": 10,
+        "specVersion": 1
+      }
     }
-  ]
+  ],
+  "specChanges": [],
+  "idempotencies": []
 }
